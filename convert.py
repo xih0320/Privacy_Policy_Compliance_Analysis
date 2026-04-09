@@ -2,7 +2,7 @@ import json
 import csv
 import os
 
-# 读取所有jsonl文件
+
 all_data = []
 for filename in ['1.jsonl', '2.jsonl', '3.jsonl']:
     with open(filename, 'r', encoding='utf-8') as f:
@@ -13,7 +13,7 @@ for filename in ['1.jsonl', '2.jsonl', '3.jsonl']:
 
 print(f"共读取 {len(all_data)} 条记录")
 
-# ========== 生成 CSV ==========
+
 with open('output.csv', 'w', newline='', encoding='utf-8-sig') as f:
     writer = csv.writer(f)
     writer.writerow(['packagename', 'pp', 'declared_permission'])
@@ -24,9 +24,9 @@ with open('output.csv', 'w', newline='', encoding='utf-8-sig') as f:
             ', '.join(d.get('declared_permission', []))
         ])
 
-print("CSV 已生成：output.csv")
+print("CSV :output.csv")
 
-# ========== 生成 HTML ==========
+
 cards = ''
 for d in all_data:
     name = d.get('packagename', 'Unknown')
